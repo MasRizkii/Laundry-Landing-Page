@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Middleware\HandleInertiaRequests;
+use Illuminate\Contracts\Foundation\MaintenanceMode;
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\ArrayMaintenanceMode;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
@@ -38,6 +40,11 @@ $app = Application::configure(basePath: dirname(__DIR__))
             }
         });
     })->create();
+
+$app->singleton(
+    MaintenanceMode::class,
+    fn () => new ArrayMaintenanceMode
+);
 
 if (isset($_ENV['VERCEL']) || isset($_SERVER['VERCEL']) || env('VERCEL') || ! is_writable(dirname(__DIR__).'/storage')) {
     $storage = '/tmp/storage';
