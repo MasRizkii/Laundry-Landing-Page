@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.vue';
+@source '../js/**/*.js';
+
+@theme {
+    --font-headline: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Stitch Brand Colors */
+    --color-primary: #9d4300;
+    --color-primary-container: #f97316;
+    --color-primary-hover: #ea580c;
+    --color-primary-fixed: #ffdbca;
+    --color-primary-fixed-dim: #ffb690;
+    --color-on-primary: #ffffff;
+    --color-on-primary-fixed: #341100;
+    --color-on-primary-fixed-variant: #783200;
+
+    --color-secondary: #50616b;
+    --color-secondary-container: #d3e5f1;
+    --color-secondary-fixed: #d3e5f1;
+    --color-secondary-fixed-dim: #b7c9d5;
+    --color-on-secondary: #ffffff;
+
+    --color-tertiary: #006398;
+    --color-tertiary-container: #00a2f4;
+    --color-tertiary-fixed: #cde5ff;
+    --color-tertiary-fixed-dim: #93ccff;
+    --color-on-tertiary: #ffffff;
+
+    --color-surface: #ffffff;
+    --color-surface-alt: #f9fafb;
+    --color-surface-bright: #f8f9ff;
+    --color-surface-dim: #d0dbed;
+    --color-surface-variant: #d9e3f6;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #eff4ff;
+    --color-surface-container: #e6eeff;
+    --color-surface-container-high: #dee9fc;
+    --color-surface-container-highest: #d9e3f6;
+
+    --color-background: #f8f9ff;
+    --color-on-background: #121c2a;
+    --color-on-surface: #121c2a;
+    --color-on-surface-variant: #584237;
+
+    --color-inverse-surface: #27313f;
+    --color-inverse-on-surface: #eaf1ff;
+
+    --color-text-primary: #1f2937;
+    --color-text-secondary: #6b7280;
+    --color-border: #e5e7eb;
+    --color-error: #ef4444;
+    --color-whatsapp-green: #25d366;
+
+    /* Spacing Tokens */
+    --spacing-space-xs: 0.25rem;
+    --spacing-space-sm: 0.5rem;
+    --spacing-space-md: 1rem;
+    --spacing-space-lg: 1.5rem;
+    --spacing-space-xl: 2rem;
+    --spacing-space-2xl: 3rem;
+    --spacing-space-3xl: 5rem;
+    --spacing-gutter: 1rem;
+    --spacing-gutter-desktop: 1.5rem;
+    --spacing-margin: 1rem;
+    --spacing-margin-tablet: 2rem;
+    --spacing-margin-desktop: 3rem;
+}
+
+/* Base typography helpers matching Stitch design tokens */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+}
+
+body {
+    font-family: var(--font-body);
+}
