@@ -4,8 +4,8 @@
   "outputDirectory": "public",
   "buildCommand": "composer install --no-dev --prefer-dist --optimize-autoloader && npm run build",
   "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.3"
+    "api/*.php": {
+      "runtime": "vercel-php@0.9.0"
     }
   },
   "routes": [
@@ -26,6 +26,8 @@
     "APP_ROUTES_CACHE": "/tmp/routes.php",
     "APP_SERVICES_CACHE": "/tmp/services.php",
     "VIEW_COMPILED_PATH": "/tmp",
-    "SSR_TEMP_PATH": "/tmp"
+    "CACHE_STORE": "array",
+    "SESSION_DRIVER": "cookie",
+    "LOG_CHANNEL": "stderr"
   }
 }
