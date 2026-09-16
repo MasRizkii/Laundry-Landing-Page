@@ -30,11 +30,13 @@ const handleSelect = (serviceSelectValue) => {
                 <div
                     v-for="item in props.layanan"
                     :key="item.id"
+                    tabindex="0"
+                    @click="handleSelect(item.select_value)"
                     :class="[
-                        'rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 group',
+                        'rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 group cursor-pointer select-none touch-manipulation active:scale-[0.98]',
                         item.is_populer
-                            ? 'relative bg-surface shadow-[0_12px_30px_rgba(249,115,22,0.14)] ring-2 ring-primary-container md:-translate-y-2 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(249,115,22,0.22)]'
-                            : 'bg-surface-alt shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.09)] hover:-translate-y-2 border border-border/50 hover:border-primary-container/40'
+                            ? 'relative bg-surface shadow-[0_12px_30px_rgba(249,115,22,0.14)] ring-2 ring-primary-container md:-translate-y-2 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(249,115,22,0.22)] active:shadow-xl active:-translate-y-2'
+                            : 'bg-surface-alt shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.09)] hover:-translate-y-2 border border-border/50 hover:border-primary-container/40 active:border-primary-container/60 active:shadow-lg active:-translate-y-1'
                     ]"
                 >
                     <!-- Most Popular Floating Badge -->
@@ -52,16 +54,16 @@ const handleSelect = (serviceSelectValue) => {
                                     'px-3 py-1 rounded-full text-xs font-semibold transition-colors',
                                     item.is_populer
                                         ? 'bg-primary-fixed text-on-primary-fixed-variant'
-                                        : 'bg-surface-container text-tertiary group-hover:bg-primary-fixed group-hover:text-primary-container'
+                                        : 'bg-surface-container text-tertiary group-hover:bg-primary-fixed group-hover:text-primary-container group-active:bg-primary-fixed group-active:text-primary-container'
                                 ]"
                             >
                                 {{ item.badge }}
                             </span>
                             <Zap v-if="item.is_populer" class="w-5 h-5 text-primary-container animate-pulse" />
-                            <Sparkles v-else class="w-5 h-5 text-text-secondary group-hover:text-primary-container transition-colors" />
+                            <Sparkles v-else class="w-5 h-5 text-text-secondary group-hover:text-primary-container group-active:text-primary-container transition-colors" />
                         </div>
 
-                        <h3 class="text-xl font-bold font-headline text-on-surface group-hover:text-primary-container transition-colors">
+                        <h3 class="text-xl font-bold font-headline text-on-surface group-hover:text-primary-container group-active:text-primary-container transition-colors">
                             {{ item.nama }}
                         </h3>
                         <p class="text-sm text-text-secondary mt-1 min-h-[40px]">
@@ -72,7 +74,7 @@ const handleSelect = (serviceSelectValue) => {
                             <div class="flex items-baseline gap-1">
                                 <span
                                     :class="[
-                                        'text-3xl font-bold font-headline transition-transform group-hover:scale-105 inline-block origin-left',
+                                        'text-3xl font-bold font-headline transition-transform group-hover:scale-105 group-active:scale-105 inline-block origin-left',
                                         item.is_populer ? 'text-primary-container' : 'text-on-surface'
                                     ]"
                                 >
@@ -104,12 +106,12 @@ const handleSelect = (serviceSelectValue) => {
 
                     <button
                         type="button"
-                        @click="handleSelect(item.select_value)"
+                        @click.stop="handleSelect(item.select_value)"
                         :class="[
-                            'w-full text-center py-3 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98]',
+                            'w-full text-center py-3 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.96] touch-manipulation',
                             item.is_populer
-                                ? 'text-on-primary bg-primary-container hover:bg-primary-hover shadow-md hover:shadow-lg'
-                                : 'text-on-surface bg-surface-container hover:bg-surface-container-high hover:text-primary-container'
+                                ? 'text-on-primary bg-primary-container hover:bg-primary-hover shadow-md hover:shadow-lg active:shadow-sm'
+                                : 'text-on-surface bg-surface-container hover:bg-surface-container-high hover:text-primary-container active:bg-primary-fixed'
                         ]"
                     >
                         Pilih Layanan

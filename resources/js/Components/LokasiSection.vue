@@ -21,7 +21,7 @@ const props = defineProps({
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 
                 <!-- Left Column: Operasional & Coverage -->
-                <div class="lg:col-span-6 flex flex-col justify-between bg-surface/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.06)] hover:-translate-y-1 border border-border/40 transition-all duration-300">
+                <div class="lg:col-span-6 flex flex-col justify-between bg-surface/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.06)] hover:-translate-y-1 active:scale-[0.99] border border-border/40 transition-all duration-300 touch-manipulation">
                     <div class="flex flex-col gap-6">
                         <div>
                             <span class="text-xs uppercase tracking-wider text-primary-container font-bold">Cakupan Area &amp; Jadwal</span>
@@ -29,7 +29,7 @@ const props = defineProps({
                         </div>
 
                         <!-- Operational hours item -->
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container active:scale-[0.98] active:bg-surface-container transition-all cursor-default touch-manipulation">
                             <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-tertiary shrink-0 shadow-sm">
                                 <Clock class="w-5 h-5 text-tertiary" />
                             </div>
@@ -40,7 +40,7 @@ const props = defineProps({
                         </div>
 
                         <!-- Free Area item -->
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container active:scale-[0.98] active:bg-surface-container transition-all cursor-default touch-manipulation">
                             <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary-container shrink-0 shadow-sm">
                                 <Truck class="w-5 h-5 text-primary-container" />
                             </div>
@@ -51,7 +51,7 @@ const props = defineProps({
                         </div>
 
                         <!-- Guarantee item -->
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container active:scale-[0.98] active:bg-surface-container transition-all cursor-default touch-manipulation">
                             <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-whatsapp-green shrink-0 shadow-sm">
                                 <ShieldCheck class="w-5 h-5 text-whatsapp-green" />
                             </div>
@@ -77,7 +77,7 @@ const props = defineProps({
                 </div>
 
                 <!-- Right Column: Interactive Map Box -->
-                <div class="lg:col-span-6 flex flex-col bg-surface/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.06)] hover:-translate-y-1 border border-border/40 justify-between transition-all duration-300">
+                <div class="lg:col-span-6 flex flex-col bg-surface/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.06)] hover:-translate-y-1 active:scale-[0.99] border border-border/40 justify-between transition-all duration-300 touch-manipulation">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <div>
@@ -87,9 +87,9 @@ const props = defineProps({
                         </div>
 
                         <!-- Map View Box -->
-                        <div class="w-full h-64 rounded-xl bg-surface-container relative overflow-hidden flex flex-col items-center justify-center text-center p-6 shadow-inner group border border-border/40">
+                        <div class="w-full h-64 rounded-xl bg-surface-container relative overflow-hidden flex flex-col items-center justify-center text-center p-6 shadow-inner group border border-border/40 cursor-pointer touch-manipulation active:scale-[0.99]">
                             <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#006398_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-lg mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <div class="relative z-10 w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-lg mb-3 group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                                 <MapPin class="w-6 h-6 text-white" />
                             </div>
                             <p class="relative z-10 text-base font-bold text-on-surface">{{ props.laundry.lokasi.alamat_lengkap }}</p>

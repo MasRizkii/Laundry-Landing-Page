@@ -1,7 +1,8 @@
 <script setup>
 import { reactive, watch } from 'vue';
-import { Truck, AlertCircle, ChevronDown, Calendar, Clock } from 'lucide-vue-next';
+import { Truck, AlertCircle, Calendar, Clock } from 'lucide-vue-next';
 import WhatsAppIcon from './Icons/WhatsAppIcon.vue';
+import CustomSelect from './CustomSelect.vue';
 
 const props = defineProps({
     layanan: {
@@ -224,27 +225,14 @@ Jam Pickup: ${form.jam}`;
                             <label for="layanan" class="text-sm font-semibold text-on-surface flex items-center gap-1">
                                 Pilihan Layanan <span class="text-error">*</span>
                             </label>
-                            <div class="relative">
-                                <select
-                                    id="layanan"
-                                    v-model="form.layanan"
-                                    @change="clearError('layanan')"
-                                    :class="[
-                                        'w-full bg-surface-container-lowest text-text-primary px-4 py-3 rounded-lg border transition-all appearance-none cursor-pointer pr-10 focus:outline-none focus:ring-2 focus:ring-primary-container text-sm',
-                                        errors.layanan ? 'border-error ring-1 ring-error' : 'border-border focus:border-transparent'
-                                    ]"
-                                >
-                                    <option disabled value="">Pilih salah satu layanan...</option>
-                                    <option
-                                        v-for="item in props.layanan"
-                                        :key="item.id"
-                                        :value="item.select_value"
-                                    >
-                                        {{ item.select_value }}
-                                    </option>
-                                </select>
-                                <ChevronDown class="w-5 h-5 absolute right-3 top-3.5 pointer-events-none text-text-secondary" />
-                            </div>
+                            <CustomSelect
+                                id="layanan"
+                                v-model="form.layanan"
+                                :options="props.layanan"
+                                placeholder="Pilih salah satu layanan..."
+                                :error="errors.layanan"
+                                @change="clearError('layanan')"
+                            />
                             <span v-if="errors.layanan" class="text-xs text-error flex items-center gap-1 mt-0.5">
                                 <AlertCircle class="w-3.5 h-3.5 shrink-0" />
                                 <span>{{ errors.layanan }}</span>
@@ -320,27 +308,15 @@ Jam Pickup: ${form.jam}`;
                             <label for="tanggal" class="text-sm font-semibold text-on-surface flex items-center gap-1">
                                 Tanggal Penjemputan <span class="text-error">*</span>
                             </label>
-                            <div class="relative">
-                                <select
-                                    id="tanggal"
-                                    v-model="form.tanggal"
-                                    @change="clearError('tanggal')"
-                                    :class="[
-                                        'w-full bg-surface-container-lowest text-text-primary px-4 py-3 rounded-lg border transition-all appearance-none cursor-pointer pr-10 focus:outline-none focus:ring-2 focus:ring-primary-container text-sm',
-                                        errors.tanggal ? 'border-error ring-1 ring-error' : 'border-border focus:border-transparent'
-                                    ]"
-                                >
-                                    <option disabled value="">Pilih Tanggal...</option>
-                                    <option
-                                        v-for="tgl in props.tanggalOptions"
-                                        :key="tgl"
-                                        :value="tgl"
-                                    >
-                                        {{ tgl }}
-                                    </option>
-                                </select>
-                                <Calendar class="w-5 h-5 absolute right-3 top-3.5 pointer-events-none text-text-secondary" />
-                            </div>
+                            <CustomSelect
+                                id="tanggal"
+                                v-model="form.tanggal"
+                                :options="props.tanggalOptions"
+                                placeholder="Pilih Tanggal..."
+                                :icon="Calendar"
+                                :error="errors.tanggal"
+                                @change="clearError('tanggal')"
+                            />
                             <span v-if="errors.tanggal" class="text-xs text-error flex items-center gap-1 mt-0.5">
                                 <AlertCircle class="w-3.5 h-3.5 shrink-0" />
                                 <span>{{ errors.tanggal }}</span>
@@ -351,27 +327,15 @@ Jam Pickup: ${form.jam}`;
                             <label for="jam" class="text-sm font-semibold text-on-surface flex items-center gap-1">
                                 Jam Penjemputan <span class="text-error">*</span>
                             </label>
-                            <div class="relative">
-                                <select
-                                    id="jam"
-                                    v-model="form.jam"
-                                    @change="clearError('jam')"
-                                    :class="[
-                                        'w-full bg-surface-container-lowest text-text-primary px-4 py-3 rounded-lg border transition-all appearance-none cursor-pointer pr-10 focus:outline-none focus:ring-2 focus:ring-primary-container text-sm',
-                                        errors.jam ? 'border-error ring-1 ring-error' : 'border-border focus:border-transparent'
-                                    ]"
-                                >
-                                    <option disabled value="">Pilih Jam...</option>
-                                    <option
-                                        v-for="jam in props.jamOptions"
-                                        :key="jam"
-                                        :value="jam"
-                                    >
-                                        {{ jam }}
-                                    </option>
-                                </select>
-                                <Clock class="w-5 h-5 absolute right-3 top-3.5 pointer-events-none text-text-secondary" />
-                            </div>
+                            <CustomSelect
+                                id="jam"
+                                v-model="form.jam"
+                                :options="props.jamOptions"
+                                placeholder="Pilih Jam..."
+                                :icon="Clock"
+                                :error="errors.jam"
+                                @change="clearError('jam')"
+                            />
                             <span v-if="errors.jam" class="text-xs text-error flex items-center gap-1 mt-0.5">
                                 <AlertCircle class="w-3.5 h-3.5 shrink-0" />
                                 <span>{{ errors.jam }}</span>

@@ -34,13 +34,14 @@ const getStepIcon = (iconName) => {
                 <div
                     v-for="item in props.items"
                     :key="item.step"
-                    class="group relative bg-surface p-6 rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 hover:border-primary-container/30 border border-border/40 transition-all duration-300 flex flex-col cursor-default"
+                    tabindex="0"
+                    class="group relative bg-surface p-6 rounded-2xl shadow-[0_4px_14px_rgba(0,0,0,0.04)] sm:shadow-[0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 hover:border-primary-container/30 border border-border/50 transition-all duration-300 flex flex-col cursor-pointer select-none touch-manipulation active:scale-[0.98] active:-translate-y-1 active:shadow-lg active:border-primary-container/40 focus:outline-none focus:ring-2 focus:ring-primary-container/30"
                 >
                     <div class="flex items-center gap-3 mb-3">
-                        <div class="w-12 h-12 rounded-xl bg-surface-container-high group-hover:bg-primary-container group-hover:text-white flex items-center justify-center text-primary-container group-hover:scale-110 transition-all duration-300 shrink-0 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-surface-container-high group-hover:bg-primary-container group-hover:text-white group-hover:scale-110 group-active:bg-primary-container group-active:text-white group-active:scale-110 flex items-center justify-center text-primary-container transition-all duration-300 shrink-0 shadow-sm">
                             <component :is="getStepIcon(item.icon)" class="w-6 h-6" />
                         </div>
-                        <h3 class="text-lg font-bold font-headline text-on-surface leading-snug group-hover:text-primary-container transition-colors">
+                        <h3 class="text-lg font-bold font-headline text-on-surface leading-snug group-hover:text-primary-container group-active:text-primary-container transition-colors">
                             {{ item.title }}
                         </h3>
                     </div>

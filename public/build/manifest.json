@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-HlBhFL3c.css",
+    "file": "assets/app-DLnFDDqF.css",
     "name": "app",
     "names": [
       "app.css"
@@ -9,7 +9,7 @@
     "isEntry": true
   },
   "resources/js/Pages/LandingPage.vue": {
-    "file": "assets/LandingPage-CFhErNw7.js",
+    "file": "assets/LandingPage-4NweUkID.js",
     "name": "LandingPage",
     "src": "resources/js/Pages/LandingPage.vue",
     "isDynamicEntry": true,
@@ -18,7 +18,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CPU3va3M.js",
+    "file": "assets/app-BakJS1C1.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
